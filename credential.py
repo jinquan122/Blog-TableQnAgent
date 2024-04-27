@@ -1,2 +1,0 @@
-groq_api = "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"
-gemini_api = "AIzaSyCCcHT_A9GdjtUNyd8HF6Bl9VDsR4aYITw"
