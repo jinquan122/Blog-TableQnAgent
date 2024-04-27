@@ -4,6 +4,7 @@ from transformers import BitsAndBytesConfig
 from langchain_google_genai import GoogleGenerativeAI
 from google.generativeai.types import HarmCategory, HarmBlockThreshold
 from langchain_groq import ChatGroq
+from credential import groq_api, gemini_api
 
 def groq_llm():
     '''
@@ -12,7 +13,7 @@ def groq_llm():
     Returns:
         A Groq LLM.
     '''
-    llm = ChatGroq(model_name="llama3-70b-8192", groq_api_key="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", temperature=0)
+    llm = ChatGroq(model_name="llama3-70b-8192", groq_api_key=groq_api, temperature=0)
     return llm
 
 safety_settings = {
@@ -31,7 +32,7 @@ def main_llm():
     '''
     llm = GoogleGenerativeAI(
             model="gemini-pro", 
-            google_api_key="AIzaSyCCcHT_A9GdjtUNyd8HF6Bl9VDsR4aYITw",
+            google_api_key=gemini_api,
             safety_settings=safety_settings
             )
     return llm
